@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">achapter</string>
+    <string name="login_to">Login To</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="login">Login</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="register">Register</string>
+    <string name="create_an_account">Create An Account</string>
+    <string name="hint_your_name">Your name</string>
+    <string name="have_an_account">Have an account?</string>
+    <string name="by_pressing_register"><![CDATA[By pressing \"Register\" you agree to our terms & conditions]]></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_title_home">Home</string>
+    <string name="menu_title_search">Search</string>
+    <string name="menu_title_cart">Cart</string>
+    <string name="menu_title_profile">Profile</string>
+    <string name="placeholder_email">info@achapter.com</string>
+    <string name="text_edit_profile">Edit Profile</string>
+    <string name="text_my_wishlist">My Wishlist</string>
+    <string name="text_my_purchases">My Purchases</string>
+    <string name="text_my_addresses">My Addresses</string>
+    <string name="text_sign_out">Sign Out</string>
+</resources>
