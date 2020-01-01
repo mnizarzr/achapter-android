@@ -21,11 +21,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onBackPressed() {
-        if(navController.currentDestination!!.id == R.id.feedFragment){
-            finishAffinity()
-        }
-        super.onBackPressed()
-    }
-
 }

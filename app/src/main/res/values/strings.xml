@@ -23,4 +23,6 @@
     <string name="text_my_purchases">My Purchases</string>
     <string name="text_my_addresses">My Addresses</string>
     <string name="text_sign_out">Sign Out</string>
+    <string name="content_desc_book_cover">Book Cover</string>
+    <string name="content_desc_user_picture">User picture</string>
 </resources>

@@ -19,11 +19,15 @@ class FeedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_feed, container, false)
+        return inflater.inflate(R.layout.fragment_feed, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         sliderView = view.findViewById(R.id.sliderView)
 
-        val sliderAdapter = SliderAdapter(activity!!.applicationContext)
+        val sliderAdapter = SliderAdapter(view.context)
         sliderView.sliderAdapter = sliderAdapter
         sliderView.setIndicatorAnimation(IndicatorAnimations.WORM)
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION)
@@ -32,7 +36,6 @@ class FeedFragment : Fragment() {
 
         sliderView.startAutoCycle()
 
-        return view
     }
 
 }

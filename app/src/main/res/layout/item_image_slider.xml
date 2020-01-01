@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="wrap_content"
     android:id="@+id/item_image_slider"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/img_slider"
-        android:contentDescription="@string/app_name"
         android:layout_width="match_parent"
         android:layout_height="180dp"
+        android:contentDescription="@string/app_name"
         android:scaleType="center"
-        tools:background="@color/colorAccent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:background="@color/colorAccent" />
 
     <TextView
         android:id="@+id/text_slider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/karla"
         android:textColor="@android:color/white"
-        tools:text="@string/app_name"/>
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_slider"
+        app:layout_constraintEnd_toEndOf="@+id/img_slider"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_slider"
+        app:layout_constraintVertical_bias="0.737"
+        tools:text="@string/app_name" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

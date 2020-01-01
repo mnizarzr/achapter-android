@@ -9,15 +9,13 @@ import android.widget.TextView
 import coil.api.load
 import com.smarteist.autoimageslider.SliderViewAdapter
 import io.github.achapter.R
-import kotlinx.android.synthetic.main.item_image_slider.view.*
 
-class SliderAdapter(context: Context) : SliderViewAdapter<SliderAdapter.SliderAdapterVH>() {
-
-    private val context: Context
+class SliderAdapter(private val context: Context) :
+    SliderViewAdapter<SliderAdapter.SliderAdapterVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup): SliderAdapterVH {
         val inflate: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_image_slider, null)
+            LayoutInflater.from(context).inflate(R.layout.item_image_slider, null)
         return SliderAdapterVH(inflate)
     }
 
@@ -47,7 +45,4 @@ class SliderAdapter(context: Context) : SliderViewAdapter<SliderAdapter.SliderAd
         }
     }
 
-    init {
-        this.context = context
-    }
 }
