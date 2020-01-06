@@ -1,47 +1,40 @@
 package io.github.achapter.adapter
 
 import android.content.Context
-import android.content.Intent
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import coil.transform.RoundedCornersTransformation
 import io.github.achapter.R
-import io.github.achapter.data.model.Wishlist
+import io.github.achapter.model.WishList
+import io.github.achapter.extension.inflate
+import kotlinx.android.synthetic.main.item_wishlist.view.*
 
-class WishlistAdapter(private val context: Context, private val listWish: ArrayList<Wishlist>) :
+class WishlistAdapter(private val context: Context, private val listWishes: ArrayList<WishList>) :
     RecyclerView.Adapter<WishlistAdapter.ListViewHolder>() {
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
-        val view: View =
-            LayoutInflater.from(viewGroup.context).inflate(R.layout.item_wishlist, viewGroup, false)
-        return ListViewHolder(view)
-    }
+    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder =
+        ListViewHolder(viewGroup.inflate(R.layout.item_wishlist))
 
     override fun getItemCount(): Int {
-        return listWish.size
+        return listWishes.size
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val wish = listWish[position]
-        holder.imgPhoto.load(wish.photo) {
-            transformations(RoundedCornersTransformation(10f))
-        }
-        holder.tvNama.text = wish.nama
-        holder.tvHarga.text = wish.harga
-//        holder.itemView.setOnClickListener{
-//            context.startActivity(Intent(context, DetailActivity::class.java))
-//        }
+        holder.bind(listWishes[position])
     }
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tvNama: TextView = itemView.findViewById(R.id.txtWishNama)
-        var tvHarga: TextView = itemView.findViewById(R.id.txtWishHarga)
-        var imgPhoto: ImageView = itemView.findViewById(R.id.imgWish)
+        fun bind(wishlist: WishList) {
+            with(itemView) {
+                txtWishNama.text = wishlist.nama
+                txtWishHarga.text = wishlist.harga
+                imgWish.load(wishlist.photo) {
+                    transformations(RoundedCornersTransformation(12f))
+                }
+            }
+        }
     }
 
 }

@@ -3,16 +3,15 @@ package io.github.achapter.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import io.github.achapter.R
 import io.github.achapter.adapter.WishlistAdapter
 import io.github.achapter.data.WishlistData
-import io.github.achapter.data.model.Wishlist
+import io.github.achapter.model.WishList
 import kotlinx.android.synthetic.main.activity_wishlist.*
 
 class WishlistActivity : AppCompatActivity() {
 
-    private var list: ArrayList<Wishlist> = arrayListOf()
+    private var list: ArrayList<WishList> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

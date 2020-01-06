@@ -1,7 +1,6 @@
 package io.github.mnizarzr.achapter.adapter
 
 import android.content.Context
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -9,15 +8,13 @@ import android.widget.TextView
 import coil.api.load
 import com.smarteist.autoimageslider.SliderViewAdapter
 import io.github.achapter.R
+import io.github.achapter.extension.inflate
 
 class SliderAdapter(private val context: Context) :
     SliderViewAdapter<SliderAdapter.SliderAdapterVH>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup): SliderAdapterVH {
-        val inflate: View =
-            LayoutInflater.from(context).inflate(R.layout.item_image_slider, null)
-        return SliderAdapterVH(inflate)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup): SliderAdapterVH =
+        SliderAdapterVH(parent.inflate(R.layout.item_image_slider))
 
     override fun onBindViewHolder(viewHolder: SliderAdapterVH, position: Int) {
         viewHolder.textViewDescription.text = "This is slider item $position"

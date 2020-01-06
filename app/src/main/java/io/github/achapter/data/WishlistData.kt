@@ -1,6 +1,6 @@
 package io.github.achapter.data
 
-import io.github.achapter.data.model.Wishlist
+import io.github.achapter.model.WishList
 
 object WishlistData {
     private val wishNama = arrayOf("Kata",
@@ -15,11 +15,11 @@ object WishlistData {
         "https://mizanstore.com/admin718/assets/img/com_cart/produk/covGRM-188.jpg",
         "https://mizanstore.com/admin718/assets/img/com_cart/produk/covGRM-1703.jpg")
 
-    val listData: ArrayList<Wishlist>
+    val listData: ArrayList<WishList>
         get() {
-            val list = arrayListOf<Wishlist>()
+            val list = arrayListOf<WishList>()
             for (position in wishNama.indices) {
-                val wish = Wishlist()
+                val wish = WishList()
                 wish.nama = wishNama[position]
                 wish.harga = wishHarga[position]
                 wish.photo = wishPhoto[position]
