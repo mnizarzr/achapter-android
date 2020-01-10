@@ -1,4 +1,4 @@
-package io.github.mnizarzr.achapter.adapter
+package io.github.achapter.adapter
 
 import android.content.Context
 import android.view.View

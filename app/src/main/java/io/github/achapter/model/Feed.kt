@@ -5,6 +5,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Feed(
-    var title: String = "",
-    var items: ArrayList<BookDisplay>? = null
+    val title: String,
+    val items: List<BookDisplay>
 ) : Parcelable

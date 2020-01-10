@@ -25,5 +25,6 @@
     <string name="text_sign_out">Sign Out</string>
     <string name="content_desc_book_cover">Book Cover</string>
     <string name="content_desc_user_picture">User picture</string>
-    <string name="tools_text_price">75.000</string>
+    <string name="tools_text_price">Rp. 75.000</string>
+    <string name="tools_feed_header">Popular books</string>
 </resources>
