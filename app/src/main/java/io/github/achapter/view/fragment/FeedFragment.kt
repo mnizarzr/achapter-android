@@ -14,6 +14,7 @@ import io.github.achapter.R
 import io.github.achapter.adapter.FeedAdapter
 import io.github.achapter.data.FeedFactory
 import io.github.achapter.adapter.SliderAdapter
+import io.github.achapter.data.PromoFactory
 import kotlinx.android.synthetic.main.fragment_feed.*
 
 class FeedFragment : Fragment() {
@@ -32,7 +33,8 @@ class FeedFragment : Fragment() {
 
         sliderView = view.findViewById(R.id.sliderView)
 
-        val sliderAdapter = SliderAdapter(view.context)
+        val sliderAdapter = SliderAdapter()
+        sliderAdapter.listPromos.addAll(PromoFactory.getPromos(4))
         sliderView.sliderAdapter = sliderAdapter
         sliderView.setIndicatorAnimation(IndicatorAnimations.WORM)
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION)
