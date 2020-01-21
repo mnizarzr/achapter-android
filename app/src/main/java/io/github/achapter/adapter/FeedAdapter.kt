@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.github.achapter.R
-import io.github.achapter.extension.inflate
+import io.github.achapter.util.inflate
 import io.github.achapter.model.Feed
 import kotlinx.android.synthetic.main.item_feed.view.*
 

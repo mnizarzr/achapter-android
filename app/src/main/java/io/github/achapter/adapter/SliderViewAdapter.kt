@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import coil.api.load
 import com.smarteist.autoimageslider.SliderViewAdapter
 import io.github.achapter.R
-import io.github.achapter.extension.inflate
+import io.github.achapter.util.inflate
 import io.github.achapter.model.Promo
 import kotlinx.android.synthetic.main.item_image_slider.view.*
 

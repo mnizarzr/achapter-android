@@ -15,3 +15,5 @@ data class Book(
     val cover: String,
     val detail: BookDetail
 ) : Parcelable
+
+

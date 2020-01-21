@@ -8,7 +8,7 @@ import coil.api.load
 import coil.transform.RoundedCornersTransformation
 import io.github.achapter.R
 import io.github.achapter.model.WishList
-import io.github.achapter.extension.inflate
+import io.github.achapter.util.inflate
 import kotlinx.android.synthetic.main.item_wishlist.view.*
 
 class WishlistAdapter(private val context: Context, private val listWishes: ArrayList<WishList>) :

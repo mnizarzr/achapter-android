@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import coil.transform.RoundedCornersTransformation
 import io.github.achapter.R
-import io.github.achapter.extension.inflate
+import io.github.achapter.util.inflate
 import io.github.achapter.model.BookDisplay
 import kotlinx.android.synthetic.main.item_book.view.*
 
