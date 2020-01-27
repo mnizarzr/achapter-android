@@ -11,8 +11,8 @@ import androidx.annotation.LayoutRes
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int): View =
     LayoutInflater.from(context).inflate(layoutRes, this, false)
 
-fun Context.toast(message: String){
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+fun Context.showToast(message: String, duration: Int = Toast.LENGTH_SHORT){
+    Toast.makeText(this, message, duration).show()
 }
 
 fun ProgressBar.show(){

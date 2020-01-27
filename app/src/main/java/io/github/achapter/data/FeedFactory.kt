@@ -20,7 +20,7 @@ object FeedFactory {
     fun getFeeds(count : Int) : List<Feed>{
         val parents = mutableListOf<Feed>()
         repeat(count){
-            val parent = Feed(randomTitle(), randomChildren())
+            val parent = Feed(randomChildren(), randomTitle(), randomTitle())
             parents.add(parent)
         }
         return parents

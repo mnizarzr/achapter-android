@@ -29,7 +29,7 @@ class FeedAdapter(private val feeds: List<Feed>) :
                 txtFeedTitle.text = feed.title
                 rvItem.apply {
                     layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                    adapter = FeedItemAdapter(feed.items)
+                    adapter = FeedItemAdapter(feed.data)
                     setRecycledViewPool(viewPool)
                 }
             }
