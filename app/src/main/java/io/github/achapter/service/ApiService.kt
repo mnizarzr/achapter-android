@@ -1,12 +1,11 @@
 package io.github.achapter.service
 
+import io.github.achapter.service.response.BookByGenreResponse
 import io.github.achapter.service.response.FeedResponse
+import io.github.achapter.service.response.GenreResponse
 import io.github.achapter.service.response.LoginResponse
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -17,7 +16,14 @@ interface ApiService {
         @Field("password") password: String
     ): Call<LoginResponse>
 
-    @GET
-    fun getFeed() : Call<FeedResponse>
+    @GET("feed")
+    fun getFeed(): Call<FeedResponse>
+
+    @GET("genre")
+    fun getGenres(): Call<GenreResponse>
+
+    @GET("genre/{id}")
+    fun getBookByGenre(@Path("id") id: Int): Call<BookByGenreResponse>
+
 
 }

@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Build
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKeys
+import timber.log.Timber
 
 class PreferenceHelper(private val context: Context) {
 
@@ -36,7 +37,7 @@ class PreferenceHelper(private val context: Context) {
         getTokenPreference().edit().putString("token", value).apply()
     }
 
-    fun getToken(): String? = getTokenPreference().getString("token", "")
+    fun getToken(): String = getTokenPreference().getString("token", "")!!
 
     fun setBoolean(key: String, value: Boolean){
         getDefaultPreference().edit().putBoolean(key, value).apply()

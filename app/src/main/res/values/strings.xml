@@ -27,4 +27,6 @@
     <string name="content_desc_user_picture">User picture</string>
     <string name="tools_text_price">Rp. 75.000</string>
     <string name="tools_feed_header">Popular books</string>
+    <string name="search_hint">Search ISBN, book title, author, or publisher</string>
+    <string name="text_categories">Categories</string>
 </resources>

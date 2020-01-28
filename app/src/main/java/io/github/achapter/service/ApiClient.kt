@@ -8,12 +8,14 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import timber.log.Timber
 
 object ApiClient {
 
     private const val BASE_URL = "http://192.168.1.100:8000/api/"
 
     private var retrofit: Retrofit? = null
+    private var retrofitWithToken: Retrofit? = null
 
     private val gson: Gson
         get() {
@@ -40,9 +42,20 @@ object ApiClient {
     }
 
     private fun createRetrofitInstance(token: String): Retrofit {
+        if (retrofitWithToken == null) {
+            retrofitWithToken = Retrofit.Builder()
+                .client(getOkHttpClient(token))
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build()
+        }
+        return retrofitWithToken!!
+    }
+
+    private fun createRetrofitInstance(): Retrofit {
         if (retrofit == null) {
             retrofit = Retrofit.Builder()
-                .client(getOkHttpClient(token))
+                .client(getOkHttpClient(""))
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
@@ -50,6 +63,8 @@ object ApiClient {
         return retrofit!!
     }
 
-    fun getService(token: String = ""): ApiService = createRetrofitInstance(token).create(ApiService::class.java)
+    fun getService(): ApiService = createRetrofitInstance().create(ApiService::class.java)
+    fun getService(token: String): ApiService =
+        createRetrofitInstance(token).create(ApiService::class.java)
 
 }
