@@ -1,11 +1,13 @@
 package io.github.achapter.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.AndroidViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.achapter.R
 import io.github.achapter.adapter.BookAdapter
+import io.github.achapter.model.BookFeed
 import io.github.achapter.model.Genre
 import io.github.achapter.service.ApiClient
 import io.github.achapter.service.ApiService
@@ -46,6 +48,16 @@ class FeedResultActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(context)
             adapter = bookAdapter
         }
+
+        bookAdapter.setOnItemClickCallback(object : BookAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: BookFeed) {
+                Intent(this@FeedResultActivity, DetailActivity::class.java).apply {
+                    putExtra("judul", data.title)
+                    putExtra("img", data.getImageUrl())
+                    startActivity(this)
+                }
+            }
+        })
 
         service.getBookByGenre(data.id!!).enqueue(object : Callback<BookByGenreResponse> {
             override fun onFailure(call: Call<BookByGenreResponse>, t: Throwable) {

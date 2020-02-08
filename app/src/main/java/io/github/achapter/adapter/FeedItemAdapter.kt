@@ -13,6 +13,16 @@ import kotlinx.android.synthetic.main.item_book.view.*
 class FeedItemAdapter(private val items: List<BookDisplay>) :
     RecyclerView.Adapter<FeedItemAdapter.ViewHolder>() {
 
+    interface OnItemClickCallback{
+        fun onItemClicked(data: BookDisplay)
+    }
+
+    private var onItemClickCallback: OnItemClickCallback? = null
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(parent.inflate(R.layout.item_book))
 
@@ -30,6 +40,7 @@ class FeedItemAdapter(private val items: List<BookDisplay>) :
                 imgBookCover.load(book.cover) {
                     transformations(RoundedCornersTransformation(12f))
                 }
+                setOnClickListener { onItemClickCallback?.onItemClicked(book) }
             }
         }
     }

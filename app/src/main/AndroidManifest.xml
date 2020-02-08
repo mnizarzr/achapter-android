@@ -18,7 +18,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".view.FeedResultActivity" android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity android:name=".view.DetailActivity"/>
+        <activity
+            android:name=".view.FeedResultActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".view.SearchActivity" />
         <activity android:name=".view.WishlistActivity" />
         <activity android:name=".view.MainActivity">

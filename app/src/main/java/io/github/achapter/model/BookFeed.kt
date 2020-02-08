@@ -1,6 +1,7 @@
 package io.github.achapter.model
 
 import android.os.Parcelable
+import io.github.achapter.BuildConfig
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -14,6 +15,6 @@ data class BookFeed(
     val title: String = ""
 ) : Parcelable {
 
-    fun getImageUrl(): String = "http://192.168.1.100:8000/storage/books/$picture"
+    fun getImageUrl(): String = "${BuildConfig.BASE_URL}/storage/books/$picture"
 
 }

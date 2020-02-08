@@ -8,11 +8,10 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import timber.log.Timber
 
 object ApiClient {
 
-    private const val BASE_URL = "http://192.168.1.100:8000/api/"
+    private const val API_URL = "${BuildConfig.BASE_URL}/api/"
 
     private var retrofit: Retrofit? = null
     private var retrofitWithToken: Retrofit? = null
@@ -45,7 +44,7 @@ object ApiClient {
         if (retrofitWithToken == null) {
             retrofitWithToken = Retrofit.Builder()
                 .client(getOkHttpClient(token))
-                .baseUrl(BASE_URL)
+                .baseUrl(API_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
         }
@@ -56,7 +55,7 @@ object ApiClient {
         if (retrofit == null) {
             retrofit = Retrofit.Builder()
                 .client(getOkHttpClient(""))
-                .baseUrl(BASE_URL)
+                .baseUrl(API_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
         }
