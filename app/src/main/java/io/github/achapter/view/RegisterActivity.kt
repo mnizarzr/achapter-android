@@ -14,7 +14,6 @@ class RegisterActivity : AppCompatActivity() {
 
         txtLogin.setOnClickListener {
             finish()
-            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
         }
 
         btnRegister.setOnClickListener {

@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.achapter.R
 import io.github.achapter.adapter.GenreAdapter
 import io.github.achapter.model.Genre
+import io.github.achapter.util.hide
+import io.github.achapter.util.show
 import io.github.achapter.view.FeedResultActivity
 import io.github.achapter.viewmodel.GenreViewModel
 import kotlinx.android.synthetic.main.fragment_search.*
@@ -33,6 +35,7 @@ class SearchFragment : Fragment() {
         genreViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
             .get(GenreViewModel::class.java)
 
+        progressBar.show()
         genreViewModel.setGenres()
 
         val genreAdapter = GenreAdapter()
@@ -44,6 +47,7 @@ class SearchFragment : Fragment() {
 
         genreViewModel.getGenres().observe(this, Observer {
             if (it != null) genreAdapter.setData(it)
+            progressBar.hide()
         })
 
         genreAdapter.setOnItemClickCallback(object: GenreAdapter.OnItemClickCallback{

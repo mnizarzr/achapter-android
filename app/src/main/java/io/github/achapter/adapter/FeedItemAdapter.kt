@@ -10,18 +10,11 @@ import io.github.achapter.util.inflate
 import io.github.achapter.model.BookDisplay
 import kotlinx.android.synthetic.main.item_book.view.*
 
-class FeedItemAdapter(private val items: List<BookDisplay>) :
+class FeedItemAdapter(
+    private val items: List<BookDisplay>,
+    private val onItemClickCallback: FeedAdapter.OnItemClickCallback?
+) :
     RecyclerView.Adapter<FeedItemAdapter.ViewHolder>() {
-
-    interface OnItemClickCallback{
-        fun onItemClicked(data: BookDisplay)
-    }
-
-    private var onItemClickCallback: OnItemClickCallback? = null
-
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(parent.inflate(R.layout.item_book))

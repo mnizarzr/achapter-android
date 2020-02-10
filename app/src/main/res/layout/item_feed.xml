@@ -17,10 +17,30 @@
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/rvItem"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtMore"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/tools_feed_header" />
+
+    <Button
+        android:id="@+id/txtMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:fontFamily="@font/karla"
+        android:minWidth="50dp"
+        android:minHeight="25dp"
+        android:padding="0dp"
+        android:text="@string/text_more"
+        android:textAllCaps="false"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/rvItem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtFeedTitle"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvItem"
@@ -29,8 +49,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtFeedTitle"
-        tools:listitem="@layout/item_book" />
-
+        app:layout_constraintTop_toBottomOf="@id/txtFeedTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

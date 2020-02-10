@@ -1,5 +1,6 @@
 package io.github.achapter.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import io.github.achapter.R
@@ -52,6 +53,12 @@ class LoginActivity : AppCompatActivity() {
 
                     })
             } else showToast("Cek kembali")
+        }
+
+        txtRegister.setOnClickListener {
+            Intent(this, RegisterActivity::class.java).apply {
+                startActivity(this)
+            }
         }
 
     }

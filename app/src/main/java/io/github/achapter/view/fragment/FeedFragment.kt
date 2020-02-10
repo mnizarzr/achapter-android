@@ -15,6 +15,8 @@ import io.github.achapter.adapter.FeedAdapter
 import io.github.achapter.data.FeedFactory
 import io.github.achapter.adapter.SliderAdapter
 import io.github.achapter.data.PromoFactory
+import io.github.achapter.model.BookDisplay
+import io.github.achapter.util.showToast
 import kotlinx.android.synthetic.main.fragment_feed.*
 
 class FeedFragment : Fragment() {
@@ -47,12 +49,17 @@ class FeedFragment : Fragment() {
 
     }
 
-    private fun setupRecyclerView(recyclerView: RecyclerView){
-        val rvAdapter = FeedAdapter(FeedFactory.getFeeds(4))
+    private fun setupRecyclerView(recyclerView: RecyclerView) {
+        val feedAdapter = FeedAdapter(FeedFactory.getFeeds(4))
+        feedAdapter.setOnItemClickCallback(object : FeedAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: BookDisplay) {
+                context?.showToast("${data.title} clicked")
+            }
+        })
         recyclerView.apply {
             hasFixedSize()
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            adapter = rvAdapter
+            adapter = feedAdapter
         }
     }
 

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">achapter</string>
-    <string name="login_to">Login To</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="login">Login</string>
@@ -29,4 +28,5 @@
     <string name="tools_feed_header">Popular books</string>
     <string name="search_hint">Search ISBN, book title, author, or publisher</string>
     <string name="text_categories">Categories</string>
+    <string name="text_more">More</string>
 </resources>

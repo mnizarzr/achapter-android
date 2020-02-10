@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.github.achapter.R
+import io.github.achapter.model.BookDisplay
 import io.github.achapter.model.Feed
 import io.github.achapter.util.StartSnapHelper
 import io.github.achapter.util.inflate
@@ -12,6 +13,16 @@ import kotlinx.android.synthetic.main.item_feed.view.*
 
 class FeedAdapter(private val feeds: List<Feed>) :
     RecyclerView.Adapter<FeedAdapter.ViewHolder>() {
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: BookDisplay)
+    }
+
+    private var onItemClickCallback: OnItemClickCallback? = null
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
 
     private val viewPool = RecyclerView.RecycledViewPool()
 
@@ -32,7 +43,7 @@ class FeedAdapter(private val feeds: List<Feed>) :
                     layoutManager =
                         LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 //                    addItemDecoration(SpacingItemDecoration(8, SpacingItemDecoration.HORIZONTAL))
-                    adapter = FeedItemAdapter(feed.data)
+                    adapter = FeedItemAdapter(feed.data, onItemClickCallback)
                     setRecycledViewPool(viewPool)
                 }
                 StartSnapHelper().attachToRecyclerView(rvItem)

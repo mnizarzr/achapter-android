@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_margin="30dp"
+        android:fontFamily="@font/karla"
         android:text="@string/create_an_account"
         android:textAlignment="center"
         android:textColor="@android:color/black"
@@ -25,6 +26,7 @@
         android:layout_below="@id/txtCreate"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:autofillHints="personName"
         android:background="@drawable/bg_round"
         android:hint="@string/hint_your_name"
         android:inputType="text"
@@ -33,7 +35,7 @@
         android:textColor="@android:color/black"
         android:textColorHint="#ACACAC"
         android:textSize="15sp"
-        android:autofillHints="" />
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/inpEmail"
@@ -42,6 +44,7 @@
         android:layout_below="@id/inpName"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:autofillHints="email"
         android:background="@drawable/bg_round"
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
@@ -50,7 +53,7 @@
         android:textColor="@android:color/black"
         android:textColorHint="#ACACAC"
         android:textSize="15sp"
-        android:autofillHints="" />
+        tools:targetApi="o" />
 
     <EditText
         android:id="@+id/inpPassword"
@@ -59,6 +62,7 @@
         android:layout_below="@id/inpEmail"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:autofillHints="password"
         android:background="@drawable/bg_round"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
@@ -67,7 +71,7 @@
         android:textColor="@android:color/black"
         android:textColorHint="#ACACAC"
         android:textSize="15sp"
-        android:autofillHints="" />
+        tools:targetApi="o" />
 
 
     <Button
