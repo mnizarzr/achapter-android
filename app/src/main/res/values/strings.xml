@@ -29,4 +29,5 @@
     <string name="search_hint">Search ISBN, book title, author, or publisher</string>
     <string name="text_categories">Categories</string>
     <string name="text_more">More</string>
+    <string name="text_deskripsi_singkat">Deskripsi Singkat</string>
 </resources>

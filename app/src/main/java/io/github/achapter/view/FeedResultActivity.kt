@@ -13,6 +13,8 @@ import io.github.achapter.service.ApiClient
 import io.github.achapter.service.ApiService
 import io.github.achapter.service.response.BookByGenreResponse
 import io.github.achapter.util.PreferenceHelper
+import io.github.achapter.util.hide
+import io.github.achapter.util.show
 import kotlinx.android.synthetic.main.activity_feed_result.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -52,13 +54,13 @@ class FeedResultActivity : AppCompatActivity() {
         bookAdapter.setOnItemClickCallback(object : BookAdapter.OnItemClickCallback {
             override fun onItemClicked(data: BookFeed) {
                 Intent(this@FeedResultActivity, DetailActivity::class.java).apply {
-                    putExtra("judul", data.title)
-                    putExtra("img", data.getImageUrl())
+                    putExtra(DetailActivity.EXTRA_BOOK_ID, data.id)
                     startActivity(this)
                 }
             }
         })
 
+        progressBar.show()
         service.getBookByGenre(data.id!!).enqueue(object : Callback<BookByGenreResponse> {
             override fun onFailure(call: Call<BookByGenreResponse>, t: Throwable) {
                 Timber.d(t.message)
@@ -72,6 +74,7 @@ class FeedResultActivity : AppCompatActivity() {
                     bookAdapter.listBooks.addAll(it.data?.books!!)
                     bookAdapter.notifyDataSetChanged()
                 }
+                progressBar.hide()
             }
         })
 

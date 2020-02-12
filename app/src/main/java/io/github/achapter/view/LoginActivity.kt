@@ -45,7 +45,6 @@ class LoginActivity : AppCompatActivity() {
                                     setInt("USER_ID", it.data.id)
                                     setString("USER_NAME", it.data.name)
                                     setString("USER_EMAIL", it.data.email)
-                                    setString("USER_ADDRESS", it.data.address)
                                 }
                                 finish()
                             }

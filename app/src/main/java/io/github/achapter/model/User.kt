@@ -1,7 +1,7 @@
 package io.github.achapter.model
 
 data class User(
-    val address: String = "",
+    val address: String? = "",
     val email: String = "",
     val id: Int = 0,
     val name: String = ""
