@@ -11,8 +11,9 @@ import io.github.achapter.util.StartSnapHelper
 import io.github.achapter.util.inflate
 import kotlinx.android.synthetic.main.item_feed.view.*
 
-class FeedAdapter(private val feeds: List<Feed>) :
-    RecyclerView.Adapter<FeedAdapter.ViewHolder>() {
+class FeedAdapter : RecyclerView.Adapter<FeedAdapter.ViewHolder>() {
+
+    val listFeeds: ArrayList<Feed> = arrayListOf()
 
     interface OnItemClickCallback {
         fun onItemClicked(data: BookDisplay)
@@ -29,10 +30,10 @@ class FeedAdapter(private val feeds: List<Feed>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(parent.inflate(R.layout.item_feed))
 
-    override fun getItemCount(): Int = feeds.size
+    override fun getItemCount(): Int = listFeeds.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(feeds[position])
+        holder.bind(listFeeds[position])
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -46,7 +47,7 @@ class FeedAdapter(private val feeds: List<Feed>) :
                     adapter = FeedItemAdapter(feed.data, onItemClickCallback)
                     setRecycledViewPool(viewPool)
                 }
-                StartSnapHelper().attachToRecyclerView(rvItem)
+//                StartSnapHelper().attachToRecyclerView(rvItem)
             }
         }
     }

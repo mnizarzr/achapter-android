@@ -30,7 +30,7 @@ class FeedItemAdapter(
             with(itemView) {
                 txtBookTitle.text = book.title
                 txtBookPrice.text = String.format("Rp. %d", book.price)
-                imgBookCover.load(book.cover) {
+                imgBookCover.load(book.getImageUrl()) {
                     transformations(RoundedCornersTransformation(12f))
                 }
                 setOnClickListener { onItemClickCallback?.onItemClicked(book) }
